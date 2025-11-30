@@ -7,7 +7,7 @@ class StoryScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Title'),
+        title: const Text('StoryScreen'),
       ),
       body: Container(),
     );

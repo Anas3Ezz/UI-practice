@@ -1,4 +1,5 @@
 import 'package:eraa_projects/view/home.dart';
+import 'package:eraa_projects/view/main_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
         colorScheme: const ColorScheme.light(primary: Colors.lightBlueAccent),
       ),
       debugShowCheckedModeBanner: false,
-      home: const HomeScreen(),
+      home: const MainScreen(),
     );
   }
 }
