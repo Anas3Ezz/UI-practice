@@ -4,7 +4,7 @@ class HeightContainer extends StatelessWidget {
   const HeightContainer(
       {super.key, required this.value, required this.onChanged});
 
-  final double value;
+  final int value;
   final ValueChanged<double> onChanged;
   @override
   Widget build(BuildContext context) {
@@ -26,18 +26,18 @@ class HeightContainer extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 15),
-          const Text.rich(
+          Text.rich(
             TextSpan(
               children: [
                 TextSpan(
-                  text: '150',
-                  style: TextStyle(
+                  text: value.toString(),
+                  style: const TextStyle(
                     color: Colors.white,
                     fontSize: 40,
                     fontWeight: FontWeight.w700,
                   ),
                 ),
-                TextSpan(
+                const TextSpan(
                   text: ' cm',
                   style: TextStyle(
                     color: Colors.white,
@@ -49,7 +49,8 @@ class HeightContainer extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 10),
-          Slider(min: 0, value: value, max: 100, onChanged: onChanged),
+          Slider(
+              min: 50, value: value.toDouble(), max: 200, onChanged: onChanged),
         ],
       ),
     );

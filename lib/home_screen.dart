@@ -28,15 +28,14 @@ class _HomeScreenState extends State<HomeScreen> {
                 child:
                     Row(mainAxisAlignment: MainAxisAlignment.center, children: [
                   GenderContainer(
-                    onTap: () {
-                      setState(() {
-                        isMale = !isMale;
-                      });
-                    },
-                    icon: Icons.male,
-                    text: 'Male',
-                    isActive: isMale,
-                  ),
+                      onTap: () {
+                        setState(() {
+                          isMale = !isMale;
+                        });
+                      },
+                      icon: Icons.male,
+                      text: 'Male',
+                      isActive: isMale),
                   const SizedBox(width: 9),
                   GenderContainer(
                     onTap: () {
@@ -51,7 +50,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ])),
             const SizedBox(height: 15),
             HeightContainer(
-                value: currentSliderValue,
+                value: currentSliderValue.toInt(),
                 onChanged: (value) {
                   setState(() {
                     currentSliderValue = value;
