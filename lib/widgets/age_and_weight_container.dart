@@ -13,7 +13,7 @@ class AgeAndWeightContainer extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(15),
       width: 175,
-      height: 185,
+      height: 200,
       decoration: BoxDecoration(
           color: const Color(0xff24263B),
           borderRadius: BorderRadius.circular(12)),

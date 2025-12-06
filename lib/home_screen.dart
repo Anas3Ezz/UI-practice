@@ -1,4 +1,5 @@
 import 'package:eraa_projects/widgets/age_and_weight_container.dart';
+import 'package:eraa_projects/widgets/calculate_button.dart';
 import 'package:eraa_projects/widgets/gender_container.dart';
 import 'package:eraa_projects/widgets/height_container.dart';
 import 'package:flutter/material.dart';
@@ -37,20 +38,13 @@ class _HomeScreenState extends State<HomeScreen> {
                   });
                 }),
             const SizedBox(height: 20),
-            const Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                AgeAndWeightContainer(
-                  text: 'Weight',
-                  age: '60',
-                ),
-                SizedBox(width: 12),
-                AgeAndWeightContainer(
-                  text: 'Weight',
-                  age: '60',
-                ),
-              ],
-            ),
+            const Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+              AgeAndWeightContainer(text: 'Weight', age: '60'),
+              SizedBox(width: 12),
+              AgeAndWeightContainer(text: 'Weight', age: '60')
+            ]),
+            const SizedBox(height: 15),
+            const CalculateButton()
           ],
         ),
       ),
