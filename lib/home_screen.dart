@@ -1,3 +1,6 @@
+import 'dart:math';
+
+import 'package:eraa_projects/result_screen.dart';
 import 'package:eraa_projects/widgets/age_and_weight_container.dart';
 import 'package:eraa_projects/widgets/calculate_button.dart';
 import 'package:eraa_projects/widgets/gender_container.dart';
@@ -12,34 +15,34 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   bool isMale = true;
-  double currentSliderValue = 150;
-  int _age = 20;
-  int _weight = 70;
+  double height = 150;
+  int age = 20;
+  int weight = 70;
   void _decrementAge() {
     setState(() {
-      if (_age > 1) {
-        _age--;
+      if (age > 1) {
+        age--;
       }
     });
   }
 
   void _incrementAge() {
     setState(() {
-      _age++;
+      age++;
     });
   }
 
   void _decrementWeight() {
     setState(() {
-      if (_weight > 1) {
-        _weight--;
+      if (weight > 1) {
+        weight--;
       }
     });
   }
 
   void _incrementWeight() {
     setState(() {
-      _weight++;
+      weight++;
     });
   }
 
@@ -77,28 +80,38 @@ class _HomeScreenState extends State<HomeScreen> {
                 ])),
             const SizedBox(height: 15),
             HeightContainer(
-                value: currentSliderValue.toInt(),
+                value: height.toInt(),
                 onChanged: (value) {
                   setState(() {
-                    currentSliderValue = value;
+                    height = value;
                   });
                 }),
             const SizedBox(height: 20),
             Row(mainAxisAlignment: MainAxisAlignment.center, children: [
               AgeAndWeightContainer(
                   title: 'Weight',
-                  counterValue: _weight,
+                  counterValue: weight,
                   onIncrement: _incrementWeight,
                   onDecrement: _decrementWeight),
               const SizedBox(width: 12),
               AgeAndWeightContainer(
                   title: 'Age',
-                  counterValue: _age,
+                  counterValue: age,
                   onIncrement: _incrementAge,
                   onDecrement: _decrementAge),
             ]),
             const SizedBox(height: 15),
-            const CalculateButton()
+            InkWell(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ResultScreen(
+                          bmiValue: weight / pow((height / 100), 2),
+                        ),
+                      ));
+                },
+                child: const CalculateButton())
           ],
         ),
       ),
