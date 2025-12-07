@@ -6,15 +6,43 @@ import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
-
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
-bool isMale = true;
-
 class _HomeScreenState extends State<HomeScreen> {
+  bool isMale = true;
   double currentSliderValue = 150;
+  int _age = 20;
+  int _weight = 70;
+  void _decrementAge() {
+    setState(() {
+      if (_age > 1) {
+        _age--;
+      }
+    });
+  }
+
+  void _incrementAge() {
+    setState(() {
+      _age++;
+    });
+  }
+
+  void _decrementWeight() {
+    setState(() {
+      if (_weight > 1) {
+        _weight--;
+      }
+    });
+  }
+
+  void _incrementWeight() {
+    setState(() {
+      _weight++;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,15 +66,14 @@ class _HomeScreenState extends State<HomeScreen> {
                       isActive: isMale),
                   const SizedBox(width: 9),
                   GenderContainer(
-                    onTap: () {
-                      setState(() {
-                        isMale = false;
-                      });
-                    },
-                    icon: Icons.female,
-                    text: 'Female',
-                    isActive: !isMale,
-                  ),
+                      onTap: () {
+                        setState(() {
+                          isMale = false;
+                        });
+                      },
+                      icon: Icons.female,
+                      text: 'Female',
+                      isActive: !isMale)
                 ])),
             const SizedBox(height: 15),
             HeightContainer(
@@ -57,10 +84,18 @@ class _HomeScreenState extends State<HomeScreen> {
                   });
                 }),
             const SizedBox(height: 20),
-            const Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-              AgeAndWeightContainer(text: 'Weight'),
-              SizedBox(width: 12),
-              AgeAndWeightContainer(text: 'age')
+            Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+              AgeAndWeightContainer(
+                  title: 'Weight',
+                  counterValue: _weight,
+                  onIncrement: _incrementWeight,
+                  onDecrement: _decrementWeight),
+              const SizedBox(width: 12),
+              AgeAndWeightContainer(
+                  title: 'Age',
+                  counterValue: _age,
+                  onIncrement: _incrementAge,
+                  onDecrement: _decrementAge),
             ]),
             const SizedBox(height: 15),
             const CalculateButton()

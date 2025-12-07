@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 
-class AgeAndWeightContainer extends StatefulWidget {
+class AgeAndWeightContainer extends StatelessWidget {
   const AgeAndWeightContainer({
     super.key,
-    required this.text,
+    required this.title,
+    required this.counterValue,
+    required this.onDecrement,
+    required this.onIncrement,
   });
-  final String text;
-  @override
-  State<AgeAndWeightContainer> createState() => _AgeAndWeightContainerState();
-}
-
-class _AgeAndWeightContainerState extends State<AgeAndWeightContainer> {
-  int theCounter = 70;
+  final String title;
+  final int counterValue;
+  final VoidCallback onDecrement;
+  final VoidCallback onIncrement;
 
   @override
   Widget build(BuildContext context) {
@@ -25,14 +25,14 @@ class _AgeAndWeightContainerState extends State<AgeAndWeightContainer> {
       child: Column(
         children: [
           Text(
-            widget.text,
+            title,
             style: const TextStyle(
                 color: Color(0xff8B8C9E),
                 fontSize: 20,
                 fontWeight: FontWeight.w400),
           ),
           Text(
-            theCounter.toString(),
+            counterValue.toString(),
             style: const TextStyle(
               color: Colors.white,
               fontSize: 40,
@@ -44,29 +44,21 @@ class _AgeAndWeightContainerState extends State<AgeAndWeightContainer> {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               FloatingActionButton(
+                heroTag: '$title 1',
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(100),
                 ),
                 backgroundColor: const Color(0xff8B8C9E),
-                onPressed: () {
-                  if (theCounter > 0) {
-                    setState(() {
-                      theCounter--;
-                    });
-                  }
-                },
+                onPressed: onDecrement,
                 child: const Icon(Icons.remove),
               ),
               FloatingActionButton(
+                heroTag: '$title 2',
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(100),
                 ),
                 backgroundColor: const Color(0xff8B8C9E),
-                onPressed: () {
-                  setState(() {
-                    theCounter++;
-                  });
-                },
+                onPressed: onIncrement,
                 child: const Icon(Icons.add),
               ),
             ],
