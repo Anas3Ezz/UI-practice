@@ -91,14 +91,14 @@ class _HomeScreenState extends State<HomeScreen> {
               AgeAndWeightContainer(
                   title: 'Weight',
                   counterValue: weight,
-                  onIncrement: _incrementWeight,
-                  onDecrement: _decrementWeight),
+                  dncrement: _incrementWeight,
+                  decrement: _decrementWeight),
               const SizedBox(width: 12),
               AgeAndWeightContainer(
                   title: 'Age',
                   counterValue: age,
-                  onIncrement: _incrementAge,
-                  onDecrement: _decrementAge),
+                  dncrement: _incrementAge,
+                  decrement: _decrementAge),
             ]),
             const SizedBox(height: 15),
             InkWell(

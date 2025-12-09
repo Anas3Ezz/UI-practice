@@ -26,20 +26,6 @@ class CalculateButton extends StatelessWidget {
           ),
         ),
       ),
-      // child: ElevatedButton(
-      //     style: ElevatedButton.styleFrom(
-      //       backgroundColor: const Color(0xffE83D67), // The background color
-      //       shape: RoundedRectangleBorder(
-      //         borderRadius: BorderRadius.circular(10.0), // Rounded corners
-      //       ),
-      //       padding: const EdgeInsets.symmetric(
-      //           horizontal: 50, vertical: 20), // Adjust size
-      //     ),
-
-      //     child: const Text(
-      //       'Calculate',
-      //       style: TextStyle(fontWeight: FontWeight.w600, fontSize: 25),
-      //     )),
     );
   }
 }

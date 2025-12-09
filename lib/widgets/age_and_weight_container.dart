@@ -5,13 +5,13 @@ class AgeAndWeightContainer extends StatelessWidget {
     super.key,
     required this.title,
     required this.counterValue,
-    required this.onDecrement,
-    required this.onIncrement,
+    required this.decrement,
+    required this.dncrement,
   });
   final String title;
   final int counterValue;
-  final VoidCallback onDecrement;
-  final VoidCallback onIncrement;
+  final VoidCallback decrement;
+  final VoidCallback dncrement;
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +49,7 @@ class AgeAndWeightContainer extends StatelessWidget {
                   borderRadius: BorderRadius.circular(100),
                 ),
                 backgroundColor: const Color(0xff8B8C9E),
-                onPressed: onDecrement,
+                onPressed: decrement,
                 child: const Icon(Icons.remove),
               ),
               FloatingActionButton(
@@ -58,7 +58,7 @@ class AgeAndWeightContainer extends StatelessWidget {
                   borderRadius: BorderRadius.circular(100),
                 ),
                 backgroundColor: const Color(0xff8B8C9E),
-                onPressed: onIncrement,
+                onPressed: dncrement,
                 child: const Icon(Icons.add),
               ),
             ],
